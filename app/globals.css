@@ -1,0 +1,254 @@
+/* Global theme variables */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary colors - orangey-blue-purple scheme as mentioned in requirements */
+  --color-primary: 255 125 0; /* Orange */
+  --color-primary-light: 255 153 51;
+  --color-primary-dark: 204 102 0;
+  
+  --color-secondary: 79 70 229; /* Indigo/Blue */
+  --color-secondary-light: 99 102 241;
+  --color-secondary-dark: 67 56 202;
+  
+  --color-accent: 147 51 234; /* Purple */
+  --color-accent-light: 168 85 247;
+  --color-accent-dark: 126 34 206;
+  
+  /* Background colors */
+  --color-background: 255 255 255;
+  --color-background-alt: 249 250 251;
+  
+  /* Text colors */
+  --color-text: 17 24 39;
+  --color-text-light: 107 114 128;
+  
+  /* Status colors */
+  --color-success: 34 197 94;
+  --color-warning: 234 179 8;
+  --color-error: 239 68 68;
+  --color-info: 59 130 246;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Dark mode theme */
+.dark {
+  --color-background: 15 23 42;
+  --color-background-alt: 30 41 59;
+  
+  --color-text: 248 250 252;
+  --color-text-light: 203 213 225;
+}
+
+/* Base styles */
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+  
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  a {
+    @apply text-secondary hover:text-secondary-dark transition-colors;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden transition-all duration-200;
+  }
+  
+  .card-header {
+    @apply p-4 md:p-6 border-b border-gray-100;
+  }
+  
+  .card-title {
+    @apply text-lg font-medium;
+  }
+  
+  .card-content {
+    @apply p-4 md:p-6;
+  }
+  
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors 
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50
+    disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 bg-transparent hover:bg-gray-50 text-gray-700;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent hover:bg-gray-100 text-gray-700;
+  }
+  
+  .btn-sm {
+    @apply h-8 px-3 rounded-md;
+  }
+  
+  .btn-md {
+    @apply h-10 px-4 py-2 rounded-md;
+  }
+  
+  .btn-lg {
+    @apply h-12 px-6 rounded-md;
+  }
+  
+  /* Form styles */
+  .form-group {
+    @apply space-y-2 mb-4;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+  
+  .form-input {
+    @apply block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400
+    focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
+    disabled:opacity-50 disabled:bg-gray-100;
+  }
+  
+  .form-select {
+    @apply block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900
+    focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
+    disabled:opacity-50 disabled:bg-gray-100;
+  }
+  
+  .form-checkbox {
+    @apply rounded border-gray-300 text-primary focus:ring-primary;
+  }
+  
+  .form-radio {
+    @apply border-gray-300 text-primary focus:ring-primary;
+  }
+  
+  /* Progress indicators */
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2.5 overflow-hidden;
+  }
+  
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-300;
+  }
+  
+  .progress-bar-fill-success {
+    @apply bg-success;
+  }
+  
+  .progress-bar-fill-warning {
+    @apply bg-warning;
+  }
+  
+  .progress-bar-fill-error {
+    @apply bg-error;
+  }
+  
+  /* Status badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .badge-error {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .badge-info {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  /* Tabs */
+  .tabs {
+    @apply flex space-x-8 border-b border-gray-200;
+  }
+  
+  .tab {
+    @apply whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors;
+  }
+  
+  .tab-active {
+    @apply border-primary text-primary;
+  }
+  
+  .tab-inactive {
+    @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-in-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
