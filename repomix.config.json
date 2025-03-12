@@ -1,0 +1,23 @@
+{
+    "remote": "https://github.com/username/manis-ai",
+    "include": [
+      "*.md",
+      "package.json",
+      "next.config.js",
+      "tsconfig.json",
+      "tailwind.config.js",
+      "app/layout.tsx",
+      "app/globals.css",
+      "app/auth/**/*.tsx",
+      "app/customer/**/*.tsx",
+      "app/staff/**/*.tsx",
+      "components/auth/**/*.tsx",
+      "components/customer/**/*.tsx",
+      "components/staff/**/*.tsx",
+      "components/providers/**/*.tsx",
+      "lib/hooks/**/*.ts",
+      "lib/firebase/**/*.ts",
+      "lib/types/**/*.ts",
+      "lib/utils.ts"
+    ]
+  }
